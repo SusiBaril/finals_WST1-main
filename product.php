@@ -62,6 +62,7 @@
     display: flex;
     justify-content: center;
     padding: 20px 0;
+    border: none;
 }
 
 .pagination a {
@@ -114,7 +115,7 @@
             <section class="product section" id="product">
     
                 <div class="title-product">
-                  <h1>Products</h1>
+                  <h1>Customer Order</h1>
                 </div>
       
                 <!-- Chart of Sales -->
@@ -125,10 +126,6 @@
                       <!-- To add item for Customer Order -->
                         <div class="item-view">
                           <div class="product-detail">
-      
-                            <div class="items">
-                              <h2>Customer Order</h2>
-                            </div>
       
                             <!-- Customer Order Form -->
                             
@@ -192,8 +189,7 @@
                                           ?>
                                           </div>
                                         </div>
-                                    </div>
-                                    <div class="pagination">
+                                        <div class="pagination">
                                     <?php
                                         $total_products = $con->getProductCount($categoryId);
                                         $total_pages = ceil($total_products / $records_per_page);
@@ -203,6 +199,7 @@
                                             echo "<a href='product.php?cat_id=$categoryId&page=$i' $class>$i</a> ";
                                         }
                                       ?>
+                                    </div>
                                     </div>
                                   </div>
 

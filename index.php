@@ -62,6 +62,8 @@ require_once('classes/database.php');
         <!-- Home Section -->
         <section class="home active section" id="home">
 
+        <?php include('includes/header.php'); ?>
+
             <!-- Analytics -->
 
             <div class="container-fluid">
@@ -114,31 +116,29 @@ require_once('classes/database.php');
                   <div class="titles-home">
                     <h3>Low Quantity</h3>
                   </div>
-
-                  <div class="container-fluid">
+                  <div class="lowstock">
+                    <div class="container-fluid">
                     <div class="card-container">
-                      <div class="lowstock">
-                            <?php
-                              $lowstocks = $con->lowStocks();
-                              foreach($lowstocks as $lowstock){
-                                ?>
-                            <div class="product-card">
-                                <div class="productimgs">
-                                <img class="product-images" src="<?php echo $lowstock['item_image'];?>" alt="Product Image">
-                                </div>
-                                <div class="product-details">
-                                    <h4 class="product-names"><?php echo $lowstock['product_brand'];?></h4>
-                                    <h4 class="product-name"><?php echo $lowstock['product_name'];?></h4>
-                                    <p class="product-quantitys">Only <strong><?php echo $lowstock['stocks'];?></strong> left in stock!</p>
-                                    <a class="product-link" href="#" data-toggle="modal" data-target="#editstockModal">Add Stock</a>
-                                </div>
-                            </div>
-                            <?php
-                              }
-                              ?>
-
-                      </div>
+                      <?php
+                      $lowstocks = $con->lowStocks();
+                      foreach($lowstocks as $lowstock){
+                        ?>
+                    <div class="product-card">
+                        <div class="productimgs">
+                        <img class="product-images" src="<?php echo $lowstock['item_image'];?>" alt="Product Image">
+                        </div>
+                        <div class="product-details">
+                            <h4 class="product-names"><?php echo $lowstock['product_brand'];?></h4>
+                            <h4 class="product-name"><?php echo $lowstock['product_name'];?></h4>
+                            <p class="product-quantitys">Only <strong><?php echo $lowstock['stocks'];?></strong> left in stock!</p>
+                            <a class="product-link" href="#" data-toggle="modal" data-target="#editstockModal">Add Stock</a>
+                        </div>
                     </div>
+                    <?php
+                      }
+                      ?>
+                    </div>
+                  </div>
                   </div>
 
                 </div>
@@ -149,11 +149,11 @@ require_once('classes/database.php');
                   <div class="titles-home">
                     <h3>Top Product</h3>
                   </div>
+                  <div class="topproduct">
                   <div class="container-fluid">
                     <div class="card-container">
-                      <div class="topproduct">
-                        <div class="row low-stock-products">
-                          <div class="col-md-6 low-stock-product-card">
+                        <div class="row">
+                          <div class="col-md-6">
                             <div class="product-card">
                                <?php
                                 $top = $con->topProduct();
@@ -167,8 +167,8 @@ require_once('classes/database.php');
                             </div>
                           </div>
                         </div>
-                      </div>
                     </div>
+                  </div>
                   </div>
                 </div>
                 </div>

@@ -176,29 +176,26 @@
       
                     <div class="stockhead">
                       <div class="row">
-                        <div class="col-md-10">
+                        <div class="col-md-11">
                           <div class="search-cat">
-                              <div class="search-bar">
-                                <input type="text" id="searchInput" class="form-control" placeholder="Search products...">
-                              </div>
-                              <div class="stock-category">
-                                  <label for="stockCategory" class="form-label"></label>
-                                  <select class="form-select" id="stockCategory" onchange="changeCategory()">
-                                  <option value="0">All</option>
-                                  <?php 
-                                  $category = $con->viewCat();
-                                  foreach($category as $cat){
-                                      echo "<option value='{$cat['cat_id']}'>{$cat['cat_type']}</option>";
-                                  }
-                                  ?>
-                            </select>
+                            <div class="search-bar">
+                            <input type="text" id="searchInput" class="form-control search-input" placeholder="Search products...">
+                                <select class="form-select category-dropdown" id="stockCategory" onchange="changeCategory()">
+                                    <option value="0">All</option>
+                                    <?php 
+                                        $category = $con->viewCat();
+                                        foreach($category as $cat){
+                                            echo "<option value='{$cat['cat_id']}'>{$cat['cat_type']}</option>";
+                                        }
+                                    ?>
+                                </select>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                         <div class="select-option">
                             <div class="dropdown">
-                              <button class="btn btn-secondary dropdown-toggle" type="button" id="stockCategoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <button class="btn btn-success dropdown-toggle" type="button" id="stockCategoryDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bx bx-plus" style="font-size: 35px;"></i>
                               </button>
                             
